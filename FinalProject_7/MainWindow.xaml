@@ -1,0 +1,102 @@
+﻿<Window x:Class="FinalProject_7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProject_7"
+        mc:Ignorable="d"
+        Title="Media" Height="650" Width="1050" FontSize="30" BorderBrush="OrangeRed" BorderThickness="5" Background="Cornsilk">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+
+        </Grid.RowDefinitions>
+        <!--<TextBlock x:Name="title" Text="Title" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+        <TextBlock x:Name="type" Text="Type" Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="1"/>
+        <TextBlock x:Name="availability" Text="Availability"  Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="3"  />
+        <TextBlock x:Name="borrower" Text="Borrower" Grid.Column="7" Grid.Row="0" Grid.ColumnSpan="2"/>-->
+
+        <DataGrid x:Name="MediaDataGrid"  RowHeight="50"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="7" AutoGenerateColumns="false" 
+                  MaxWidth="600" FontSize="20" FontStyle="Italic" 
+                  Background="NavajoWhite" AlternatingRowBackground="Aqua" RowBackground="RosyBrown"
+                  GridLinesVisibility="Horizontal" CanUserResizeColumns="False" ColumnHeaderHeight="60" Foreground="Maroon">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Title"  Binding="{ Binding Title,Mode=OneWay}" Width="2*" FontStyle="Normal"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding MediaType,Mode=OneWay}" Width="2*" FontStyle="Normal" />
+                <DataGridCheckBoxColumn Header=" Availability"   Binding="{Binding Status,Mode=OneWay}" Width="2*"  />
+                <DataGridTextColumn Header=" Borrower" Binding="{Binding Borrower,Mode=OneWay}" Width="2*" FontStyle="Normal"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--<Button x:Name="Lend_Media" Grid.ColumnSpan="3" Content="Lend Media" FontSize="28" FontStyle="Italic" FontWeight="SemiBold" Grid.Column="11"   Grid.Row="0" Width="170" Height="68" Click="Lend_Media_Click" />-->
+
+        <Button     x:Name="Lend_Media" Grid.ColumnSpan="4"   Grid.Column="10"   Grid.Row="0" Grid.RowSpan="2" Background="Cornsilk" Width="190" Height="130" HorizontalAlignment="Left" Click="Lend_Media_Click"  >
+            <StackPanel Orientation="Vertical">
+                <Image Source="Lend_Media.jpeg" Width="190" Height="125"    >
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-0.35"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </StackPanel>
+        </Button>
+
+
+
+
+        <!--<Button Grid.ColumnSpan="3" Content="Media Info" FontSize="28" FontStyle="Italic" FontWeight="SemiBold" Grid.Column="14"     Grid.Row="0" Width="170" Height="68" />-->
+        <Button x:Name="Return_media" Grid.ColumnSpan="4"    Grid.Column="13"   Grid.Row="1" Grid.RowSpan="2" Background="Cornsilk" Width="190" Height="130" HorizontalAlignment="Right" Click="Return_media_click" >
+            <StackPanel Orientation="Vertical">
+                <Image Source="Return_Media.jpeg" Width="190" Height="125"/>
+
+            </StackPanel>
+
+
+        </Button>
+        <!--<Button Grid.ColumnSpan="3" Content="Member Info" FontSize="28" FontStyle="Italic" Grid.Column="14"     Grid.Row="1" Width="170" />-->
+
+        <!--//////////////////-->
+
+        <DataGrid x:Name="MemberDataGrid"  Grid.ColumnSpan="5" Grid.Column="11" AutoGenerateColumns="False"  Grid.Row="3" Grid.RowSpan="6"
+                  MaxWidth="400" Height="290" RowBackground="RosyBrown" AlternatingRowBackground="MediumSeaGreen"
+                  ColumnHeaderHeight="60" FontStretch="Expanded" GridLinesVisibility="Horizontal"  FontSize="22">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Borrower" Binding="{Binding Name,Mode=OneWay}" FontStyle="Italic"/>
+                <DataGridTextColumn Header="Num Borrower"  Binding="{Binding Counter,Mode=OneWay}" FontStyle="Italic"/>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+
+
+    </Grid>
+</Window>
